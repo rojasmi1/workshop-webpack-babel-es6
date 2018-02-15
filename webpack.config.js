@@ -1,11 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        app: './src/app.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
@@ -36,10 +39,17 @@ module.exports = {
             }
         ]
     },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist'
+    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Output Management'
-        })
+            title: 'Webpack/Babel/ES6 Workshop',
+            template: 'src/index.html',
+            hash: true
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin()
     ],
 };
