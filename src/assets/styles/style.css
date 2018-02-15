@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Butter';
+    src: url('../fonts/butter.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+.hello {
+    color: red;
+    font-family: 'Butter';
+    font-size: 22px;
+}
+
+.icon {
+    height: 32px;
+    width: auto;
+}
