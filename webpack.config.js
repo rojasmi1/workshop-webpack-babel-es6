@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -19,6 +20,16 @@ module.exports = {
     },
     module: {
         rules: [{
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',
@@ -51,6 +62,7 @@ module.exports = {
             template: 'src/index.html',
             hash: true
         }),
+        new UglifyJSPlugin({uglifyOptions: {ecma: 7}}),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
