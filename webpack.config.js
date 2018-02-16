@@ -41,7 +41,8 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        hot: true
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -50,6 +51,8 @@ module.exports = {
             template: 'src/index.html',
             hash: true
         }),
-        new webpack.optimize.ModuleConcatenationPlugin()
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
 };
