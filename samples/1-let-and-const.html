@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>let and const</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+        {   
+            // Function scoped
+            var name = 'Bart';
+
+            // Block scoped
+            let age = 14;
+            const id = 'AB-123';
+
+            // Can't be redefined
+            // let age = 16;
+
+            // Can't be reassigned
+            // id = 'AB-456';
+
+            console.table({
+                name,
+                age,
+                id
+            });
+        }
+
+        const customer = {
+            id: 3,
+            name: 'Barney'
+        };
+        
+        // Can't be reassigned
+        // customer = {};
+
+        // But it can be mutated
+        customer.id = 4;
+
+        console.log(`%c My name is: ${name}`, 'color: green; font-weight: bold;');
+        
+        // var can be redefined
+        var name = 'Lisa';
+        console.log(`%c My name is: ${name}`, 'color: green; font-weight: bold;');
+        console.log(`%c My age is: ${age}`, 'color: green; font-weight: bold;');
+    </script>
+</body>
+
+</html>

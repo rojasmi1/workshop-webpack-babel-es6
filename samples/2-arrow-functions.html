@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Arrow functions and default params</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+
+        // Default params
+        // Hint: It can be used to make params required
+        // paramName => throw new Error(`Please provide a value for ${paramName}`)
+        function pow (num = 0, exp = 2) {
+            return num ** exp;
+        }
+
+        console.log(pow(4, 3));
+        console.log(pow(4));
+        console.log(pow());
+
+        // Arrow functions are anonymous by default
+        const square = (number) => {
+            return number * number;
+        }
+
+        // Unique parameter
+        const square2 = number => {
+            return number * number;
+        }
+
+        // Implicit return
+        // Use parenthesis if you want to return an object
+        // i.e. ({age: 4, name: 'Michael'})
+        const square3 = number => number * number;
+
+        // Print numbers from 1 to 10 after waiting 5 seconds
+        for (let i = 1; i <= 10; i++) {
+            setTimeout(() => {
+                console.log(i);
+            }, 5000);
+        }
+
+        // WHEN NOT TO USE THEM
+        const title = document.querySelector('h1');
+        title.addEventListener('click', function() {
+            console.log(this.textContent);
+        });
+
+        class Person {
+            constructor (name, age) {
+                this.firstName = name;
+                this.age = age;
+            }
+        }
+
+        const person1 = new Person('Lisa', 14);
+        
+        // When adding functions to the prototype
+        Person.prototype.printPerson = () => {
+            console.log(`Name: ${this.firstName} - Age: ${this.age}`);
+        }
+
+        person1.printPerson();
+
+        // When 'arguments' is required, because it's 'arguments' is not passed in arrow functions
+        const sumAll = function () {
+            const nums = Array.from(arguments).map(num => parseInt(num));
+            let result = 0;
+
+            for (const num of nums) {
+                result += num;
+            }
+
+            return result;
+        }
+
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Destructuring</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+
+        // Destructuring objects
+        const customer = {
+            id: 3,
+            name: 'Barney',
+            country: 'US',
+            civilState: 'Single'
+        };
+
+        const {id, name, zipCode = '90210'} = customer;
+        const {id:customerId, name:customerName} = customer;
+
+        // Destructuring arrays
+        const colors = ['red', 'blue', 'yellow', 'black', 'green'];
+        const [red, blue, yellow, ...unusedColors] = colors;
+
+        // Swapping variables
+        let activeName = 'Michael';
+        let unactiveName = 'Emilio';
+
+        [activeName, unactiveName] = [unactiveName, activeName];
+
+    </script>
+</body>
+
+</html>

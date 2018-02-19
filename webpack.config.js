@@ -1,6 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -63,6 +64,7 @@ module.exports = {
             hash: true
         }),
         new UglifyJSPlugin({uglifyOptions: {ecma: 7}}),
+        new CopyWebpackPlugin([ { from: './samples/*.html' } ]),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()

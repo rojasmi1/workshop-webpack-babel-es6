@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Template Strings</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+
+        const user = {
+            id: 200,
+            firstName: 'Milhouse',
+            middleName: 'Mussolini',
+            lastName: 'Van Houten'
+        };
+
+        function printUser (user) {
+            
+            // Spaces count, single and double quotes are not a problem
+            console.log(`ID: ${user.id} - Full Name: ${user.firstName} ${user.middleName} ${user.lastName}`);
+            
+            // The old way
+            // console.log('ID: '+ user.id + ' - Full Name: ' + user.firstName + ' ' + user.middleName + ' ' + user.lastName);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Loops and Iterables</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+
+        // * Normal for loop is too long and sintax is not so intuitive
+        // * In forEeach you can't use break or continue
+        // * In for (const index in array) you only get the index, and it iterates over prototype elements
+
+        const customers = ['Cana', 'Medaglia', 'Michael', 'Warren'];
+        Array.prototype.listAll = function () {
+            for (let i = 0; i <= this.length; i++) {
+                console.log(this[i]);
+            }c
+        }
+
+        // Logs everything, including prototype functons
+        for (const index in customers) {
+            console.log(customers[index]);
+        }
+
+        // Only iterates over the elements
+        for (const customer of customers) {
+            // Skip Michael
+            if (customer === 'Michael') continue;  
+            console.log(customer);
+        }
+
+        // Get iterable from an Object
+        const customer = {
+            id: 3,
+            name: 'Barney',
+            country: 'US',
+            civilState: 'Single'
+        };
+        console.log('----------- Iterate over object -----------');
+        for (const [key, value] of Object.entries(customer)) {
+            console.log(`${key}: ${value}`);
+        }
+
+    </script>
+</body>
+
+</html>
