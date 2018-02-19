@@ -57,6 +57,10 @@
                 this.firstName = name;
                 this.age = age;
             }
+
+            sayMyName() {
+                console.log(`Hi, my name is ${this.firstName}`);
+            }
         }
 
         const person1 = new Person('Lisa', 14);
@@ -67,6 +71,7 @@
         }
 
         person1.printPerson();
+        person1.sayMyName();
 
         // When 'arguments' is required, because it's 'arguments' is not passed in arrow functions
         const sumAll = function () {

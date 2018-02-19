@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Promises and Async/Await</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+        // Promises out of the box
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(response => response.json())
+            .then(json => {
+                const titles = json
+                    .map(element => element.title)
+                    .filter(title => title.startsWith('a'));
+                console.log(titles);
+            }).catch(error => {
+                console.error(error);
+            });
+
+        // Custom promise
+        function notifyAdmin(emailAddres) {
+            return new Promise((resolve, reject) => {
+                // Do some async work here
+                setTimeout(() => {
+                    if (emailAddres === 'mrojas@possible.com') {
+                        resolve(true);
+                    }
+                    reject('Please provide a valid admin address!');
+                }, 5000);
+            });
+        }
+
+        notifyAdmin('mrojas@possible.com')
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+
+
+        // Async/Await
+        async function asyncNotify() {
+            const notificationResult1 = await notifyAdmin('mrojas@possible.com');
+            const notificationResult2 = await notifyAdmin('mrojas@possible.com');
+            console.log(notificationResult1, notificationResult2);
+        }
+
+        // Multiple Async/Await calls
+        async function multipleAsync() {
+            const firstNotification = notifyAdmin('mrojas@possible.com');
+            const secondNotification = notifyAdmin('mrojas@possible.com');
+            const results = await Promise.all([firstNotification, secondNotification]);
+            console.log(results);
+        }
+    </script>
+</body>
+
+</html>

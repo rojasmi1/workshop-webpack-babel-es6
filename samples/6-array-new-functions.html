@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Array new functions</h1>
+    <p>Open the browser's console to see the results.</p>
+    <ul>
+        <li class="video-item">Video 1</li>
+        <li class="video-item">Video 2</li>
+        <li class="video-item">Video 3</li>
+        <li class="video-item">Video 4</li>
+    </ul>
+    <script>
+        // Array.from() & Array.of()
+        const videoItems = document.querySelectorAll('.video-item');
+        const videos = Array.from(videoItems);
+
+        const numbers = Array.of(1, 2, 3, 4, 5, 6, 7, 8);
+        console.log(numbers);
+
+        // .find() and .findIndex()
+        const evenNumber = numbers.find(number => number % 2 === 0);
+        const evenNumberIndex = numbers.findIndex(number => number % 2 === 0);
+
+        // .some() and .every()
+        const hasEvenNumbers = numbers.some(number => number % 2 === 0);
+        const isEvenList = numbers.every(number => number % 2 === 0);
+
+        console.log(`Does the array has even numbers? ${hasEvenNumbers}`);
+        console.log(`Is it an array of only even numbers? ${isEvenList}`);
+    </script>
+</body>
+
+</html>

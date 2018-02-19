@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Classes</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+        class Animal {
+            constructor(name, family) {
+                this.name = name;
+                this.family = family;
+            }
+
+            static sleepAll() {
+                console.log('Animals are sleeping');
+            }
+
+            eat() {
+                console.log(`${this.name} is eating`);
+            }
+
+            set setName(value) {
+                this.name = value;
+            }
+
+            get getName() {
+                return this.name;
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name, family, age) {
+                super(name, family);
+                this.age = age;
+            }
+
+            bark() {
+                console.log('Bau Guau');
+            }
+        }
+
+        const otto = new Dog('Otto', 'Mammal', 2);
+        otto.bark();
+        otto.eat();
+        Dog.sleepAll();
+ 
+    </script>
+</body>
+
+</html>

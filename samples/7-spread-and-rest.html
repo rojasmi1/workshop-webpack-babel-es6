@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Workshop</title>
+</head>
+
+<body>
+    <h1>Spread and Rest operator</h1>
+    <p>Open the browser's console to see the results.</p>
+    <script>
+
+        const specialEvents = ['Ultra', 'Lollapalooza'];
+        const latestEvents = ['Coachella', 'South by southwest'];
+
+        const allEvents = [...specialEvents, 'Grammy Awards', ...latestEvents];
+        
+        // Old way
+        // let allEvents = specialEvents.concat('Grammy Awards').concat(latestEvents);
+
+        const allEventsClone = [...allEvents];
+        
+        // Old way
+        // const allEventsClone = [].concat(allEvents);
+
+        // Shorthand for creating objects
+        const name = 'Diego';
+        const age = 28;
+        const person = {name, age, country: 'Costa Rica'};
+
+    </script>
+</body>
+
+</html>
