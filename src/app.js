@@ -8,7 +8,7 @@ import { square } from './utilities/math';
 
 class App {
 
-    constructor(numLabels) {
+    constructor() {
         
     }
 
