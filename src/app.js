@@ -28,4 +28,4 @@ class App {
     }
 }
 
-document.body.appendChild(component());
+document.body.appendChild(new App().render());
