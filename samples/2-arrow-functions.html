@@ -40,11 +40,22 @@
         const square3 = number => number * number;
 
         // Print numbers from 1 to 10 after waiting 5 seconds
-        for (let i = 1; i <= 10; i++) {
-            setTimeout(() => {
-                console.log(i);
-            }, 5000);
-        }
+        const Util = {
+                printNumbers: function () {
+                    // this is refering to Util here
+                    console.log(this);
+                    this.text = 'Number: ';
+                    for (let i = 1; i <= 10; i++) {
+                        // setTimeout is the same as calling window.setTimeout
+                        setTimeout(function () {
+                        // Here this refers to window when using traditional functions, and to Util if we switch to arrow functions
+                        console.log(`${this.text} ${i}`);
+                        }, 5000);
+                    }
+                }
+            }
+
+        Util.printNumbers();
 
         // WHEN NOT TO USE THEM
         const title = document.querySelector('h1');
